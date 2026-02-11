@@ -2,6 +2,10 @@
 
 A reusable Next.js App Router starter for local-service business websites.
 
+Usage guide:
+
+- `docs/USING_TEMPLATE.md`
+
 ## Stack
 
 - Next.js 16 (App Router)
