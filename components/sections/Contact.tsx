@@ -3,7 +3,7 @@ import Section from "../ui/Section"
 
 export default function Contact() {
   return (
-    <Section className="bg-gray-50">
+    <Section id="contact" className="scroll-mt-24 bg-gray-50">
       <Container>
         <div className="mx-auto max-w-2xl">
           <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">

@@ -4,11 +4,17 @@
 
 /* Optional global resets */
 
-html {
-  scroll-behavior: smooth;
-}
-
 body {
   background: white;
   color: black;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+:target {
+  scroll-margin-top: 6rem;
 }

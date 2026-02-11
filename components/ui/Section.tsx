@@ -1,12 +1,12 @@
+type Props = React.ComponentPropsWithoutRef<"section">
+
 export default function Section({
   children,
   className = "",
-}: {
-  children: React.ReactNode
-  className?: string
-}) {
+  ...props
+}: Props) {
   return (
-    <section className={`py-16 lg:py-24 ${className}`}>
+    <section className={`py-16 lg:py-24 ${className}`} {...props}>
       {children}
     </section>
   )

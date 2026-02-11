@@ -12,7 +12,7 @@ export default function ServiceGrid({
   services: Service[]
 }) {
   return (
-    <Section>
+    <Section id="services" className="scroll-mt-24">
       <Container>
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {services.map((service, i) => (
