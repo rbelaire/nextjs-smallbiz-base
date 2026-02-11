@@ -17,7 +17,7 @@ export default function Testimonials({
               className="border-l-4 border-black pl-6"
             >
               <p className="text-lg italic">
-                "{t.quote}"
+                &ldquo;{t.quote}&rdquo;
               </p>
               <p className="mt-2 text-sm font-semibold">
                 {t.name}
