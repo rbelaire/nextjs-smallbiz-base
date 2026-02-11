@@ -1,11 +1,15 @@
 import "./globals.css"
 import Navbar from "@/components/layout/Navbar"
 import Footer from "@/components/layout/Footer"
+import { site } from "@/content/site"
+import { buildSeoMetadata } from "@/lib/seo"
 
-export const metadata = {
-  title: "Small Business Website",
-  description: "Professional services tailored to your needs.",
-}
+export const metadata = buildSeoMetadata({
+  title: site.name,
+  description: site.description,
+  imageUrl: site.ogImage,
+  canonicalUrl: site.url,
+})
 
 export default function RootLayout({
   children,
