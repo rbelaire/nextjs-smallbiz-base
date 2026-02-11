@@ -51,6 +51,8 @@ Open `http://localhost:3000`.
 - `npm run build` - production build
 - `npm run start` - run production server
 - `npm run lint` - run ESLint
+- `npm run test:smoke` - start the built app on a free local port and verify `/` and `/api/contact`
+- `npm test` - run production build and smoke tests
 
 ## Content + Types
 
@@ -98,7 +100,17 @@ Response format:
 
 ## CI/CD (GitHub Actions + Vercel)
 
-Workflow file:
+CI workflow file:
+
+- `.github/workflows/ci.yml`
+
+Runs on all pushes and pull requests:
+
+- `npm ci`
+- `npm run lint`
+- `npm test`
+
+Deploy workflow file:
 
 - `.github/workflows/deploy.yml`
 
