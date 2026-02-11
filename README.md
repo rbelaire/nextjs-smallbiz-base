@@ -1,36 +1,111 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Next.js Small Business Template
+
+A reusable Next.js App Router starter for local-service business websites.
+
+## Stack
+
+- Next.js 16 (App Router)
+- React 19
+- TypeScript
+- Tailwind CSS
+
+## Project Structure
+
+- `app/` - App Router pages, layout, and API routes
+- `components/` - UI and page sections
+- `content/` - typed content objects used by templates
+- `templates/` - page template composition
+- `types/` - shared template/content interfaces
+- `lib/` - shared utilities (including SEO metadata helper)
+
+## Key Features
+
+- Section-based homepage template (`Hero`, `ServiceGrid`, `ProcessSteps`, `Testimonials`, `Contact`)
+- Reusable `Section` wrapper component for consistent spacing/layout
+- Contact form section posting to `/api/contact`
+- API route at `app/api/contact/route.ts` with input validation and JSON success/fail responses
+- Reusable SEO metadata builder in `lib/seo.ts` used by `app/layout.tsx`
+- Shared content interfaces in `types/templates.d.ts`
+- Tailwind theme tokens for colors, typography sizes, and spacing
+- GitHub Actions workflow for build + deploy via Vercel CLI
 
 ## Getting Started
 
-First, run the development server:
+Install dependencies:
+
+```bash
+npm ci
+```
+
+Run development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open `http://localhost:3000`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Scripts
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- `npm run dev` - start local dev server
+- `npm run build` - production build
+- `npm run start` - run production server
+- `npm run lint` - run ESLint
 
-## Learn More
+## Content + Types
 
-To learn more about Next.js, take a look at the following resources:
+Content for the default local-service template lives in:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- `content/local-service.ts`
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Types are defined in:
 
-## Deploy on Vercel
+- `types/templates.d.ts`
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+If you add/edit template content, keep it aligned with these interfaces so component props stay type-safe.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## SEO
+
+Global metadata is created from `content/site.ts` using:
+
+- `lib/seo.ts` (`buildSeoMetadata`)
+
+And consumed in:
+
+- `app/layout.tsx`
+
+## Contact API
+
+Endpoint:
+
+- `POST /api/contact`
+
+Accepted payloads:
+
+- `application/json`
+- `multipart/form-data` / native form submit
+
+Required fields:
+
+- `name`
+- `email`
+- `message`
+
+Response format:
+
+- Success: `{ "success": true, "message": "..." }`
+- Error: `{ "success": false, "error": "..." }`
+
+## CI/CD (GitHub Actions + Vercel)
+
+Workflow file:
+
+- `.github/workflows/deploy.yml`
+
+Runs on pushes to `main`, installs dependencies, builds the Next.js app, then deploys using Vercel CLI.
+
+Required repository secrets:
+
+- `VERCEL_TOKEN`
+- `VERCEL_ORG_ID`
+- `VERCEL_PROJECT_ID`
