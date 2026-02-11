@@ -1,10 +1,6 @@
 import Container from "../ui/Container"
 import Section from "../ui/Section"
-
-type Testimonial = {
-  quote: string
-  name: string
-}
+import type { Testimonials as Testimonial } from "@/types/templates"
 
 export default function Testimonials({
   testimonials,

@@ -1,10 +1,11 @@
 import Container from "../ui/Container"
 import Section from "../ui/Section"
+import type { Steps } from "@/types/templates"
 
 export default function ProcessSteps({
   steps,
 }: {
-  steps: string[]
+  steps: Steps[]
 }) {
   return (
     <Section className="bg-gray-50">
@@ -13,10 +14,10 @@ export default function ProcessSteps({
           {steps.map((step, i) => (
             <div key={i}>
               <p className="text-sm font-semibold">
-                Step {i + 1}
+                {step.label}
               </p>
               <p className="mt-2 text-gray-700">
-                {step}
+                {step.text}
               </p>
             </div>
           ))}

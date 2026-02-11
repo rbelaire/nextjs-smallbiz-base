@@ -1,15 +1,11 @@
 import Container from "../ui/Container"
 import Section from "../ui/Section"
-
-type Service = {
-  title: string
-  description: string
-}
+import type { Services } from "@/types/templates"
 
 export default function ServiceGrid({
   services,
 }: {
-  services: Service[]
+  services: Services[]
 }) {
   return (
     <Section id="services" className="scroll-mt-24">

@@ -1,16 +1,21 @@
 import Container from "../ui/Container"
 import Section from "../ui/Section"
+import type { Contact as ContactContent } from "@/types/templates"
 
-export default function Contact() {
+export default function Contact({
+  title,
+  description,
+  submitLabel,
+}: ContactContent) {
   return (
     <Section id="contact" className="scroll-mt-24 bg-gray-50">
       <Container>
         <div className="mx-auto max-w-2xl">
           <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
-            Contact Us
+            {title}
           </h2>
           <p className="mt-3 text-gray-600">
-            Tell us a bit about your project and we will get back to you soon.
+            {description}
           </p>
 
           <form
@@ -78,7 +83,7 @@ export default function Contact() {
               type="submit"
               className="inline-flex rounded-md bg-black px-6 py-3 text-sm font-semibold text-white transition hover:opacity-80"
             >
-              Send Message
+              {submitLabel}
             </button>
           </form>
         </div>

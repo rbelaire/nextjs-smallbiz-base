@@ -13,7 +13,7 @@ export default function LocalServiceTemplate() {
       <ServiceGrid services={content.services} />
       <ProcessSteps steps={content.steps} />
       <Testimonials testimonials={content.testimonials} />
-      <Contact />
+      <Contact {...content.contact} />
     </>
   )
 }

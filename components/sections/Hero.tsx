@@ -1,14 +1,9 @@
 import Container from "../ui/Container"
 import Section from "../ui/Section"
 import Button from "../ui/Button"
+import type { Hero as HeroContent } from "@/types/templates"
 
-type Props = {
-  title: string
-  subtitle: string
-  primaryCta: string
-}
-
-export default function Hero({ title, subtitle, primaryCta }: Props) {
+export default function Hero({ title, subtitle, primaryCta }: HeroContent) {
   return (
     <Section className="bg-gray-50">
       <Container>
@@ -27,4 +22,3 @@ export default function Hero({ title, subtitle, primaryCta }: Props) {
     </Section>
   )
 }
-
